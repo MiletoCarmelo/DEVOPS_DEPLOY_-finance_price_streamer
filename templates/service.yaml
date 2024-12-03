@@ -1,14 +1,21 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "finance-price-streamer.name" . }}
+  name: {{ include "kafka-app.fullname" . }}
   labels:
-    {{- include "finance-price-streamer.labels" . | nindent 4 }}
+    {{- include "kafka-app.labels" . | nindent 4 }}
 spec:
+  type: {{ .Values.service.type }}
   ports:
-  - port: {{ .Values.service.port }}
-    targetPort: {{ .Values.service.targetPort }}
-    protocol: TCP
-    name: http
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+    {{- if .Values.metrics.enabled }}
+    - port: {{ .Values.monitoring.port }}
+      targetPort: metrics
+      protocol: TCP
+      name: metrics
+    {{- end }}
   selector:
-    {{- include "finance-price-streamer.labels" . | nindent 4 }}
+    {{- include "kafka-app.selectorLabels" . | nindent 4 }}

@@ -24,6 +24,15 @@ spec:
         - name: {{ .Chart.Name }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: http
+              containerPort: {{ .Values.service.targetPort }}
+              protocol: TCP
+            {{- if .Values.metrics.enabled }}
+            - name: metrics
+              containerPort: {{ .Values.monitoring.port }}
+              protocol: TCP
+            {{- end }}
           {{- if .Values.deployment.probes.enabled }}
           livenessProbe:
             httpGet:
