@@ -3,6 +3,24 @@ entries:
   generic-kafka:
   - apiVersion: v2
     appVersion: 1.0.0
+    created: "2024-12-03T22:37:03.43225714Z"
+    description: A Helm chart for Generic Kafka Applications
+    digest: 336fbb50df584eae11ceab4aba7135842d24415e105ecf9afa87af5fc646bd8e
+    icon: https://kafka.apache.org/images/apache-kafka.png
+    keywords:
+    - kafka
+    - streaming
+    - messaging
+    maintainers:
+    - email: contact@qantorcapital.com
+      name: Qantor Capital
+    name: generic-kafka
+    type: application
+    urls:
+    - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_app/github-pages/generic-kafka-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 1.0.0
     created: "2024-12-03T22:00:21.631761107Z"
     description: A Helm chart for Generic Kafka Applications
     digest: 1d2bd52e88e16cf1839461c80780eb3c73576f0c3b1c8ad110d8e84e0fa92a51
@@ -19,4 +37,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_app/github-pages/generic-kafka-0.1.0.tgz
     version: 0.1.0
-generated: "2024-12-03T22:00:21.62980625Z"
+generated: "2024-12-03T22:37:03.43057467Z"
