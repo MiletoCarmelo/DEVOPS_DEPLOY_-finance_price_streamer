@@ -1,0 +1,8 @@
+kafka:
+  servers: "kafka-prod-kafka-bootstrap.kafka-prod:9092"
+
+config:
+  defaultDays: "7"
+
+image:
+  tag: stable

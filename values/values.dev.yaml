@@ -1,0 +1,8 @@
+kafka:
+  servers: "kafka-dev-kafka-bootstrap.kafka-dev:9092"
+
+config:
+  defaultSpeed: "5.0"
+
+image:
+  tag: dev

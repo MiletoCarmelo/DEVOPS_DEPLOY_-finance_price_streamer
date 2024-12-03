@@ -1,0 +1,16 @@
+{{- if and .Values.metrics.prometheus.enabled .Values.metrics.prometheus.serviceMonitor.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ include "kafka-app.fullname" . }}
+  labels:
+    {{- include "kafka-app.labels" . | nindent 4 }}
+spec:
+  endpoints:
+    - port: metrics
+      interval: {{ .Values.metrics.prometheus.serviceMonitor.interval }}
+      path: {{ .Values.monitoring.path }}
+  selector:
+    matchLabels:
+      {{- include "kafka-app.selectorLabels" . | nindent 6 }}
+{{- end }}

@@ -1,0 +1,29 @@
+# values.yaml
+image:
+  repository: ghcr.io/miletocarmelo/finance_price_streamer
+  tag: latest
+  pullPolicy: Always
+
+kafka:
+  servers: "kafka-dev-kafka-bootstrap.kafka-dev:9092"
+
+config:
+  defaultSymbol: "JPY"
+  defaultDays: "3"
+  defaultSpeed: "1.0"
+
+service:
+  port: 80
+  targetPort: 8000
+
+deployment:
+  replicas: 1
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "200m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+# Ajoutez des overrides spécifiques aux environnements dans values.dev.yaml et values.prod.yaml

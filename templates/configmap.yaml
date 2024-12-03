@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "kafka-app.fullname" . }}-config
+  labels:
+    {{- include "kafka-app.labels" . | nindent 4 }}
+data:
+  KAFKA_BOOTSTRAP_SERVERS: {{ .Values.kafka.servers | quote }}
+  KAFKA_GROUP_ID: {{ .Values.kafka.consumer.groupId | quote }}
+  KAFKA_AUTO_OFFSET_RESET: {{ .Values.kafka.consumer.autoOffsetReset | quote }}
+  KAFKA_ENABLE_AUTO_COMMIT: {{ .Values.kafka.consumer.enableAutoCommit | quote }}
+  APPLICATION_TYPE: {{ .Values.application.type | quote }}
+  MESSAGE_FORMAT: {{ .Values.application.config.messageFormat | quote }}
+  {{- range .Values.kafka.topics }}
+  KAFKA_TOPIC_{{ .name | upper | replace "-" "_" }}: {{ .name | quote }}
+  {{- end }}
+  {{- with .Values.application.config.customConfig }}
+  {{- toYaml . | nindent 2 }}
+  {{- end }}
