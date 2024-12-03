@@ -1,0 +1,8 @@
+# overlays/dev/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: streamer-config
+data:
+  KAFKA_SERVERS: "kafka-dev:9092"
+  DEFAULT_SPEED: "5.0"

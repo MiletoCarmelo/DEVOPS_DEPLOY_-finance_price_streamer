@@ -1,0 +1,33 @@
+# base/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: finance-price-streamer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: finance-price-streamer
+  template:
+    metadata:
+      labels:
+        app: finance-price-streamer
+    spec:
+      containers:
+      - name: streamer
+        image: finance-price-streamer:latest
+        ports:
+        - containerPort: 8000
+          name: http
+        command: ["python", "-m", "price_streamer.main"]
+        args: ["--api"]
+        envFrom:
+        - configMapRef:
+            name: streamer-config
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "200m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"

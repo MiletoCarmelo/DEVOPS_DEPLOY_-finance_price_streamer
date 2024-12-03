@@ -1,0 +1,8 @@
+# overlays/prod/configmap.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: streamer-config
+data:
+  KAFKA_SERVERS: "kafka-prod:9092"
+  DEFAULT_DAYS: "7"
