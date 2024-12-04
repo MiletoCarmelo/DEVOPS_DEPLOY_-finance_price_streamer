@@ -1,5 +1,5 @@
 apiVersion: v2
-name: generic-kafka
+name: generic-kafka-app
 description: A Helm chart for Generic Kafka Applications
 type: application
 version: 0.1.1
