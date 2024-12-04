@@ -40,9 +40,9 @@ entries:
   generic-kafka-app:
   - apiVersion: v2
     appVersion: 1.0.0
-    created: "2024-12-04T06:58:17.222810033Z"
+    created: "2024-12-04T06:59:52.21389516Z"
     description: A Helm chart for Generic Kafka Applications
-    digest: 109d6c26785b4fd7e3b789da5a8c02f81f80963cd25932ca8a90ae258b69a32d
+    digest: fe6670705f6a9706cf02efb829e8fdf4590ffb9133c14f1247ad86b1b4212202
     icon: https://kafka.apache.org/images/apache-kafka.png
     keywords:
     - kafka
@@ -56,4 +56,4 @@ entries:
     urls:
     - https://raw.githubusercontent.com/MiletoCarmelo/DEVOPS_HELM_generic_kafka_app/github-pages/generic-kafka-app-0.1.1.tgz
     version: 0.1.1
-generated: "2024-12-04T06:58:17.22067021Z"
+generated: "2024-12-04T06:59:52.212617261Z"
