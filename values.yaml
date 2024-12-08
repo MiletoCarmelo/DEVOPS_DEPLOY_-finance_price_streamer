@@ -8,7 +8,8 @@ nameOverride: ""
 fullnameOverride: ""
 
 kafka:
-  servers: "kafka-cluster-kafka-bootstrap:9092"
+  # servers: "kafka-cluster-kafka-bootstrap:9092"
+  servers: "kafka-dev-service.kafka-dev.svc.cluster.local:9092"
   security:
     enabled: false
     ssl:
