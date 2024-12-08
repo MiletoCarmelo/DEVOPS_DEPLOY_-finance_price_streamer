@@ -8,7 +8,7 @@ nameOverride: ""
 fullnameOverride: ""
 
 kafka:
-  # servers: "kafka-cluster-kafka-bootstrap:9092"
+  # Serveur Kafka de l'environnement
   servers: "kafka-dev-service.kafka-dev.svc.cluster.local:9092"
   security:
     enabled: false
@@ -17,9 +17,9 @@ kafka:
     sasl:
       enabled: false
   topics:
-    - name: "default-topic"
-      partitions: 1 # normally 3 
-      replicationFactor: 1 # normally 3 
+    - name: "finance-price-stream"  # Le nom du topic à créer
+      partitions: 3                 # Nombre de partitions du topic
+      replicationFactor: 1          # Facteur de réplication à 1 (car vous avez un seul broker en dev)
   consumer:
     groupId: "default-group"
     autoOffsetReset: "earliest"
@@ -31,10 +31,10 @@ kafka:
     compression: "snappy"
 
 application:
-  type: "producer"  # or consumer
+  type: "producer"  # ou "consumer" selon votre application
   config:
     defaultPollTimeout: 1000
-    messageFormat: "json"  # or avro, protobuf
+    messageFormat: "json"  # ou avro, protobuf
     customConfig: {}
 
 monitoring:
@@ -49,7 +49,7 @@ service:
   targetPort: 8000
 
 deployment:
-  replicas: 1  # normally 3 
+  replicas: 1  # En environnement de développement, un seul réplica de l'application
   resources:
     requests:
       memory: "256Mi"
